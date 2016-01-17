@@ -69,6 +69,20 @@ header {
     -moz-transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
 }
+.input7-text {
+    padding: 15px 16px;
+    border: 1px solid #ccc;
+    width: 100%;
+    height: 50px;
+    display: block;
+    border-radius: 4px;
+    font-size: 15px;
+    color: #aaa;
+    margin: 0 0 15px 0;
+    transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+}
 .input3-text {
     padding: 15px 16px;
     border: 1px solid #ccc;
@@ -92,6 +106,13 @@ header {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(124, 197, 118, 0.3);
 }
 .input2-text:focus {
+    border: 1px solid #fff;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(124, 197, 118, 0.3);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(124, 197, 118, 0.3);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(124, 197, 118, 0.3);
+}
+.input7-text:focus {
     border: 1px solid #fff;
     outline: 0;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(124, 197, 118, 0.3);
@@ -122,6 +143,19 @@ header {
 	top: 15px;
 	margin-bottom: 50px;
 	margin-left: 40px;
+    height: 150px;
+    width: 575px;
+
+    resize: none;
+    overflow: auto;
+    
+}
+.input7-text.text-area {
+	position: relative;
+	/*margin-top: 50px;*/
+	top: 15px;
+	margin-bottom: 50px;
+	/*margin-left: 40px;*/
     height: 150px;
     width: 575px;
 
@@ -172,7 +206,7 @@ header {
 #bc {
 	background: url('images/fondob.jpg') no-repeat center center fixed;
 	margin-bottom: 20px;
-	width: 98%;
+	/*width: 98%;*/
 	
 }
 
@@ -213,6 +247,10 @@ header {
   	box-shadow: inset 0 2px 0 rgba(0,0,0,.2), 0 0 4px rgba(0,0,0,0.1),0 0 10px 1px #51CBEE;
 }
 .input4-text:focus { 
+	outline: none;
+  	box-shadow: inset 0 2px 0 rgba(0,0,0,.2), 0 0 4px rgba(0,0,0,0.1),0 0 10px 1px #51CBEE;
+}
+.input7-text:focus { 
 	outline: none;
   	box-shadow: inset 0 2px 0 rgba(0,0,0,.2), 0 0 4px rgba(0,0,0,0.1),0 0 10px 1px #51CBEE;
 }
@@ -260,6 +298,21 @@ header {
 	background: url('images/fondob.jpg') no-repeat center center fixed;
 	margin-top: 0px;
 	padding-bottom: 0px;
+	
+}
+#result_anuncios3 {
+	background: url('images/fondob.jpg') no-repeat center center fixed;
+	margin-top: 10px;
+	
+}
+#result_anuncios4 {
+	background: url('images/fondob.jpg') no-repeat center center fixed;
+	margin-top: 10px;
+	
+}
+#result_anuncios5{
+	background: url('images/fondob.jpg') no-repeat center center fixed;
+	margin-top: 10px;
 	
 }
 #contcom {

@@ -52,6 +52,7 @@ import edu.upc.eetac.dsa.dsaqt1516g7.handicap.api.model.Favorito;
 import edu.upc.eetac.dsa.dsaqt1516g7.handicap.api.model.FavoritoCollection;
 import edu.upc.eetac.dsa.dsaqt1516g7.handicap.api.model.Partido;
 import edu.upc.eetac.dsa.dsaqt1516g7.handicap.api.model.PartidoCollection;
+import edu.upc.eetac.dsa.dsaqt1516g7.handicap.api.model.Pick;
 
 @Path("/comentarios")
 public class ComentarioResource {
@@ -60,7 +61,7 @@ public class ComentarioResource {
 	private DataSource ds = DataSourceSPA.getInstance().getDataSource();
 
 	private String GET_PARTIDO_BY_ID_QUERY = "select c.* from comentarios c where c.idcomentario=?";
-	private String INSERT_PARTIDO_QUERY = "insert into comentarios (username, local, visitante, fechacierre, fechapartido) values (?, ?, ?, ?, ?)";
+	private String INSERT_COMENTARIO_QUERY = "insert into comentarios (pick, username, texto) values (?, ?, ?)";
 	private String DELETE_PARTIDO_QUERY = "delete from comentarios where idpartido=?";
 	private String UPDATE_PARTIDO_QUERY = "update comentarios set username=ifnull(?,username),local=ifnull(?, local), visitante=ifnull(?, visitante),fechacierre=ifnull(?,fechacierre),fechapartido=ifnull(?,fechapartido) where idpartido=?";
 
@@ -180,7 +181,7 @@ public class ComentarioResource {
 		return comentarios;
 	}
 
-	 @GET
+	@GET
 	 
 	@Path("/picks/{pick}")
 	@Produces(MediaType.FAVORITOS_API_FAVORITO_COLLECTION)
@@ -337,7 +338,70 @@ public class ComentarioResource {
 			throw new BadRequestException(
 					"Visitor can't be greater than 500 characters.");
 	}*/
+	////crear comentario
+	
+	/**
+	 * M�todo createPartido
+	 * M�todo en el que le pasamos el objeto Partido que queremos crear , si el usuario asociado existe 
+	 * lo crear� correctamente, en cambio si este usuario no existe lanzar� una Excepci�n
+	 * 
+	 * @param partido
+	 * @return Partido (Retorna el objeto Partido con el id generado)
+	 */
+	
+	@POST
+	@Consumes(MediaType.PARTIDOS_API_PARTIDO)
+	@Produces(MediaType.PARTIDOS_API_PARTIDO)
+	public Comentario createComentario(Comentario comentario) {
+		//validatePick(pick);
+		Connection conn = null;
+		try {
+			conn = ds.getConnection();
+		} catch (SQLException e) {
+			throw new ServerErrorException(e.getMessage(),
+					Response.Status.SERVICE_UNAVAILABLE);
+		}
 
+		PreparedStatement stmt = null;
+		try {
+			stmt = conn.prepareStatement(INSERT_COMENTARIO_QUERY,
+					Statement.RETURN_GENERATED_KEYS);// return devuelve el
+														// primary key, este
+														// sera el sitingId
+
+			stmt.setInt(1, comentario.getPick());
+			stmt.setString(2, comentario.getUsername());
+			stmt.setString(3, comentario.getTexto());
+			
+			stmt.executeUpdate();
+			ResultSet rs = stmt.getGeneratedKeys();// copiamos aqui el idpartido
+			if (rs.next()) {
+				int idcomentario = rs.getInt(1);// lo grabamo en idpartido
+
+				comentario = getComentarioFromDatabase(Integer.toString(idcomentario));
+			}
+
+		} catch (SQLException e) {
+			throw new ServerErrorException(e.getMessage(),
+					Response.Status.INTERNAL_SERVER_ERROR);
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				throw new ServerErrorException(e.getMessage(),
+						Response.Status.SERVICE_UNAVAILABLE);
+			}
+		}
+
+		return comentario;
+	}
+
+	
+	
+	
+	///////
 	
 	/**
 	 * A Partir de un idPartido retorna toda la informaci�n de ese partido en el objeto Partido

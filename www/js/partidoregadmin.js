@@ -126,9 +126,9 @@ function PickCollection(pickCollection, respuesta, picks){
 }
 function getCom(i) {
 	
-	window.location= "partidocoment_partidos.html";
-	pasarVariables ('partidocoment_partidos.html',i);
-	$('partidocoment_partidos.html').ready(function(){
+	window.location= "partidocoment_partidosadmin.html";
+	pasarVariables ('partidocoment_partidosadmin.html',i);
+	$('partidocoment_partidosadmin.html').ready(function(){
 	});
 }
 

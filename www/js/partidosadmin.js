@@ -79,10 +79,10 @@ function PartidoCollection(partidoCollection, respuesta, partidos){
 			var fecha = new Date(partido.creation_timestamp).toGMTString();
 			html = html.concat('<FONT class="textss" color="#F78A0E"> Publicado: </FONT>' + fecha + '<br>');
 			html = html.concat('<br>');
-			html = html.concat('<a class="boton verde"  onclick="getPartido('+idpartido+')" id="anuncio" align=left>Entrar al Partido</a><br>');
-			html = html.concat('<a class="boton verde"  onclick="deletePartido('+idpartido+')" id="eliminar" align=left>Eliminar Partido</a><br>');
-			html = html.concat('<a class="boton verde"  onclick="getAnuncio('+idpartido+')" id="cerrar" align=left>Entrar a los Picks</a><br>');
-			html = html.concat('<a class="boton verde"  onclick="updatePartido('+idpartido+')" id="modificar" align=left>Modificar Partido</a><br>');
+			html = html.concat('<a type="button" class="boton verde"  onclick="getPartido('+idpartido+')" id="anuncio" align=left>Entrar idp:'+idpartido+'</a><br>');
+			html = html.concat('<a type="button" class="boton verde"  onclick="deletePartido('+idpartido+')" id="eliminar" align=left>Eliminar idp:'+idpartido+'</a><br>');
+			html = html.concat('<a type="button" class="boton verde"  onclick="getAnuncio('+idpartido+')" id="cerrar" align=left>Entrar a los Picks</a><br>');
+			html = html.concat('<a type="button" class="boton verde"  onclick="updatePartido('+idpartido+')" id="modificar" align=left>Modificar Partido idp:'+idpartido+'</a><br>');
 			html = html.concat('<br>');
 			html = html.concat('<hr size="4"  />');
 			
@@ -184,6 +184,13 @@ function getPartidos(url){
 	});
 }
 
+function getPartido(i) {
+	
+	window.location= "partidoregadmin.html";
+	pasarVariables ('partidoregadmin.html',i);
+	$('partidoregadmin.html').ready(function(){
+	});
+}
 
 
 function pasarVariables(pagina, i) {
