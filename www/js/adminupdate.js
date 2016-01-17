@@ -123,6 +123,7 @@ function updatePartido(partido) {
 					
 					
 				console.log(data);
+				alert("Partido actualizado!");	
 		
   	}).fail(function() {
 		$('<div class="alert alert-danger"> <strong>Error!</strong> El juego no ha podido crearse</div>').appendTo($("#result"));
@@ -150,7 +151,7 @@ function getEquipoL(selequipo){
 				$('<img id="vv" width="130" height="180" align="left" src="'+data.imageURL1+'">').appendTo($('#uno'));
 		}).fail(function() {
 				// $('<div class="alert alert-danger"> <strong>Oh!</strong> Anuncio no encontrado </div>').appendTo($("#result_anuncio"));
-				 alert("Partido Creado!");	
+				 alert("Error seleccion partido!");	
 	});
 
 }
