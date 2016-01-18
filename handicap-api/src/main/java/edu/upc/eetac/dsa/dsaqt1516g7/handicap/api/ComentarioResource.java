@@ -403,6 +403,7 @@ public class ComentarioResource {
 	@Produces(MediaType.PARTIDOS_API_PARTIDO)
 	public Comentario createComentario(Comentario comentario) {
 		//validatePick(pick);
+		System.out.println("comentario1: "+comentario);
 		Connection conn = null;
 		try {
 			conn = ds.getConnection();
@@ -428,8 +429,9 @@ public class ComentarioResource {
 				int idcomentario = rs.getInt(1);// lo grabamo en idpartido
 
 				comentario = getComentarioFromDatabase(Integer.toString(idcomentario));
+				System.out.println("comentario2: "+comentario);
 			}
-
+			System.out.println("comentario3: "+comentario);
 		} catch (SQLException e) {
 			throw new ServerErrorException(e.getMessage(),
 					Response.Status.INTERNAL_SERVER_ERROR);
@@ -443,7 +445,7 @@ public class ComentarioResource {
 						Response.Status.SERVICE_UNAVAILABLE);
 			}
 		}
-
+		System.out.println("comentario4: "+comentario);
 		return comentario;
 	}
 

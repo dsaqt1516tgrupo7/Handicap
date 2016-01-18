@@ -158,7 +158,7 @@ function getEquipoV(selequipo){
 $("#button_exit").click(function(e) {
     e.preventDefault();
 	  if(($.removeCookie('password'))&&($.removeCookie('rolename'))&&($.removeCookie('username'))) {
-		$('#saludo_user').html('<p>Sesion cerrada!!</strong></FONT>');
+		$('#saludo_user').html('<p>Cerrando Sesión!!</strong></FONT>');
 		window.setTimeout('window.location.replace("index.html")', 2000); // refresh after 2 sec
 	  }
  });

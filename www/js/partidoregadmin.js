@@ -1,4 +1,5 @@
 var API_BASE_URL = 'http://localhost:8080/handicap-api/partidos/';
+var API_BASE_URL_PICKS2 = 'http://localhost:8080/handicap-api/picks/';
 var API_BASE_URL_LOGIN = 'http://localhost:8080/handicap-api';
 var API_BASE_URL_PRECIOS = 'http://localhost:8080/handicap-api/partidos/idpartidos/'
 var API_BASE_URL_PICKS = 'http://localhost:8080/handicap-api/picks/partidos/'
@@ -126,6 +127,30 @@ function PickCollection(pickCollection, respuesta, picks){
  		return html;	
 	}
 }
+
+function delCom(file_name) {
+
+
+	var url = API_BASE_URL_PICKS2 + file_name;
+	// $("#result").text('');
+
+	$.ajax({
+		url : url,
+		type : 'DELETE',
+		crossDomain : true,
+		dataType : 'json',
+		statusCode: {
+    		202: function() {$('<div class="alert alert-danger"> <strong>Ok!</strong> File deleted </div>').appendTo($("#result"));},
+			404: function() {$('<div class="alert alert-danger"> <strong>Oh!</strong> File not found </div>').appendTo($("#result"));}
+    	}
+	}).done(function(data, status, jqxhr) {
+		alert("Pick Borrado!!");
+		
+	});
+	alert("Pick Borrado!!");
+}
+
+
 function getCom(i) {
 	
 	window.location= "partidocoment_partidosadmin.html";

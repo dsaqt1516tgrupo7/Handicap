@@ -5,6 +5,8 @@ var API_BASE_URL_PICKS = 'http://localhost:8080/handicap-api/picks/partidos/'
 var API_BASE_URL_PICKS2 = 'http://localhost:8080/handicap-api/picks/'
 var API_BASE_URL_COMENTARIOS = 'http://localhost:8080/handicap-api/comentarios/picks/';
 var API_BASE_URL_COMENTS = 'http://localhost:8080/handicap-api/comentarios/picks/';
+var API_BASE_URL_USERS = 'http://localhost:8080/handicap-api/users/';
+var API_BASE_URL_CREATE = 'http://localhost:8080/handicap-api/comentarios/';
 var lastFilename;
 var username = getCookie('username');
 var password = getCookie('password');
@@ -24,13 +26,46 @@ $(document).ready(function(){
 	var url = API_BASE_URL_PICKS2 + d;
 	var url2 = API_BASE_URL_COMENTS +d;
 	var url3 = API_BASE_URL_COMENTS;
+	var url4 = API_BASE_URL_USERS;
+	// var u = user;
 	console.log(url);
 	// getPartido(d);
 	getPicks(d);
 	getComentarios(url2);
+	// getUsers(url4);
 
 	
 });
+
+//////users
+
+function getUser(url) {
+	var url= API_BASE_URL_USERS + url;
+	$("#result_anuncios").text('');
+
+	$.ajax({
+		url : url,
+		type : 'GET',
+		crossDomain : true,
+		dataType : 'json',
+	}).done(function(data, status, jqxhr) {
+
+				// var user = data;
+
+				// $("#result_anuncios").text('');
+				// $('<div class="item active" id="im1"><img  src="' + user.imageURL + '"></div>').appendTo($('#imagenperfil'));
+				// $('<div class="perfilusers"><strong> Nombre:  &nbsp; &nbsp;</strong><text class="kkk">' + user.name + '</text></div><hr class="se"><hr class="se">').appendTo($('#result_anuncios'));
+				// $('<div class="perfilusers"><strong> Username: </strong><text class="kkk">' + user.username + '</text></div><hr class="se"><hr class="se">').appendTo($('#result_anuncios'));
+				// $('<div class="perfilusers"><strong> Email: </strong><text class="kkk">' + user.email + '</text></div><hr class="se"><hr class="se">').appendTo($('#result_anuncios'));
+				
+			}).fail(function() {
+				// $('<div class="alert alert-danger"> <strong>Oh!</strong> Repository not found </div>').appendTo($("#result_anuncios"));
+	
+	});
+	
+}
+
+
 
 //////////////comentarios
 
@@ -60,6 +95,7 @@ function ComentarioCollection(comentarioCollection, respuesta, comentarios){
 	this.toHTML = function(){
 		var html = '';
 		$.each(this.comentarios, function(i, v) {
+			
 			var comentario = v;
 			var idcomentario = comentario.idcomentario;
 			var fecha = new Date(comentario.creation_timestamp).toGMTString();
@@ -67,10 +103,12 @@ function ComentarioCollection(comentarioCollection, respuesta, comentarios){
 			// 	'<div class="item active" id="im1"><img class="imgcenterr" width="130" height="130" align=left src="'+respuesta.partidos[i].imageURL2+'"' +  
 			// 	'<div class="item active"><img class="imgcenter"  width="130" height="130" align=left src="'+respuesta.partidos[i].imageURL3+'"' + 
 			// 	'<div class="item active"><img class="imgcenterr"  width="130" height="130" align=left src="'+respuesta.partidos[i].imageURL1+'"' );
+		
 			
 			html = html.concat('<li class="event"><input type="radio" name="tl-group" checked/><img id="ball" src="images/favicon.png"><div class="thumb user-4"><span>'+comentario.username+'</span></div>');
 			html = html.concat('<div class="content-perspective"><div class="content"><div class="content-inner">');
 			html = html.concat('<h3>'+ comentario.username +'</h3><br>');
+		
 			html = html.concat('<p>'+ comentario.texto +'</p>');
 			html = html.concat('</div></div></div></li>');
 			
@@ -280,20 +318,21 @@ $("#enviarcom").click(function(e){
 
 	var txt = $('#textocom').val();
 
-		var Comentario = {
+		Comentario = {
 			"pick" : id,
 			"username" : username,
 			"texto" : txt,
 		}
 		createComentario(Comentario);
 		console.log(Comentario);
-	
+		
+		
 });
 
 
 
 function createComentario(Comentario) {
-	var url = API_BASE_URL_COMENTARIOS;
+	var url = API_BASE_URL_CREATE;
 	var data = JSON.stringify(Comentario);
 	console.log(url);
 	console.log(Comentario);
@@ -317,16 +356,21 @@ function createComentario(Comentario) {
     	}
 
 	}).done(function(data, status, jqxhr) {
-		$('<div class="alert alert-success"> <strong></strong>Mensaje Enviado OK!!</div>').appendTo($("#result_anuncios3"));		
+		
   	}).fail(function() {
-		$('<div class="alert alert-danger"> <strong></strong> Error al enviar el mensaje!!</div>').appendTo($("#result_anuncios3"));
+  		
 	});
-
+  	// location.reload();
 }
 
 
 /////////////
-
+// function getRefresh(){
+// 	window.location= "partidocoment_partidos.html";
+// 	pasarVariables ('partidocoment_partidos.html');
+// 	$('partidocoment_partidos.html').ready(function(){
+// 	});
+// }
 
 
 function getPrincipio(){
@@ -419,7 +463,7 @@ function pasarVariables(pagina, i) {
 $("#button_exit").click(function(e) {
     e.preventDefault();
 	  if(($.removeCookie('password'))&&($.removeCookie('rolename'))&&($.removeCookie('username'))) {
-		$('#saludo_user').html('<p>Sesion cerrada!!</strong></FONT>');
+		$('#saludo_user').html('<p>Cerrando Sesión!!</strong></FONT>');
 		window.setTimeout('window.location.replace("index.html")', 2000); // refresh after 2 sec
 	  }
  });
