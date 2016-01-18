@@ -16,78 +16,79 @@ $(document).ready(function(){
 	cadVariables = location.search.substring(1,location.search.length);
 	arrVariables = cadVariables.split("=");
 	var d = arrVariables[0];
+
 	var url = API_BASE_URL_PICKS2 + d;
 	console.log(url);
-	getPartido(d);
+	// getPartido(d);
 	getPicks(d);
 
 	
 });
 
-function getPartido(d){
+// function getPartido(d){
 
-	var url = API_BASE_URL +  d;
-		$("#result_anuncio").text('');
-		$.ajax({
-		url : url,
-		type : 'GET',
-		crossDomain : true,
-		dataType : 'json',
-		}).done(function(data, status, jqxhr) {
+// 	var url = API_BASE_URL +  d;
+// 		$("#result_anuncio").text('');
+// 		$.ajax({
+// 		url : url,
+// 		type : 'GET',
+// 		crossDomain : true,
+// 		dataType : 'json',
+// 		}).done(function(data, status, jqxhr) {
 				
-				var partido = data;
+// 				var partido = data;
 				
-				var respuesta = $.parseJSON(jqxhr.responseText);
-				var fecha = new Date(partido.creation_timestamp).toGMTString();
+// 				var respuesta = $.parseJSON(jqxhr.responseText);
+// 				var fecha = new Date(partido.creation_timestamp).toGMTString();
 				
 			
-				// $('<strong>Partido creado el día:</strong> ' + fecha + '<br>').appendTo($('#result_anuncio3'));	
-				// $('<br>').appendTo($('#result_anuncio3'));
-				// $('<br>').appendTo($('#result_anuncio3'));	
-				// console.log(partido.imageURL3);
-				// $('<div class="item active" id="im1"><img class="imgcenterr" width="130" height="130" align=left src="'+partido.imageURL2+'"').appendTo($('#result_anuncios3'));
-				// $('<div class="item active"><img class="imgcenter"  width="130" height="180" align=left src="'+partido.imageURL3+'"').appendTo($('#result_anuncios3'));
-				// $('<div class="item active"><img class="imgcenterr"  width="130" height="130" align=left src="'+partido.imageURL1+'"').appendTo($('#result_anuncios3'));
-				// $('<br>').appendTo($('#result_anuncios3'));
-				// $('<br>').appendTo($('#result_anuncios3'));
-				// $('<br>').appendTo($('#result_anuncios3'));
-				// $('<br>').appendTo($('#result_anuncios3'));
-				// $('<br>').appendTo($('#result_anuncios3'));
-				// $('<br>').appendTo($('#result_anuncios3'));
-				// $('<br>').appendTo($('#result_anuncios3'));
-				// $('<br>').appendTo($('#result_anuncios3'));
-				// $('<br>').appendTo($('#result_anuncios3'));
-				// $('<br>').appendTo($('#result_anuncios3'));
-				$('<br>').appendTo($('#result_anuncios3'));
-				$('<br>').appendTo($('#result_anuncios3'));
-				$('<FONT class="texts" color="#F78A0E"><strong> Equipo Visitante: </strong></FONT><FONT color="#FFFFFF">' + partido.e_visitante + '</FONT><br>').appendTo($('#result_anuncios3'));
-				$('<FONT class="texts" color="#F78A0E"><strong> Equipo Local: </strong> </FONT><FONT color="#FFFFFF">' + partido.e_local + '</FONT><br>').appendTo($('#result_anuncios3'));
-				$('<FONT class="texts" color="#F78A0E"><strong> Lugar del Partido: </strong> </FONT><FONT color="#FFFFFF">' + partido.lugar + '</FONT><br>').appendTo($('#result_anuncios3'));
-				$('<FONT class="texts" color="#F78A0E"><strong> Jornada Número: </strong> </FONT><FONT color="#FFFFFF">' + partido.jornada + '</FONT><br>').appendTo($('#result_anuncios3'));
-				$('<FONT class="texts" color="#F78A0E"><strong> Resultado del partido: </strong></FONT><FONT color="#FFFFFF">' + partido.e_visitante + '</FONT><FONT color="#F78A0E"><strong> VS </strong></FONT><FONT color="#FFFFFF">' 
-			+ partido.e_local + '</FONT><FONT color="#F78A0E"><strong> : </strong></FONT><FONT color="#FFFFFF">' + partido.puntuacionv + 
-			'</FONT><FONT color="#F78A0E"><strong> - </strong></FONT><FONT color="#FFFFFF">' + partido.puntuacionl + '</FONT><br>').appendTo($('#result_anuncios3'));
-				$('<br>').appendTo($('#result_anuncios3'));
-				$('<br>').appendTo($('#result_anuncios3'));
-				$('<br>').appendTo($('#result_anuncios3'));
-				var fecha = new Date(partido.creation_timestamp).toGMTString();
-				$('<FONT class="textss" color="#F78A0E"> Publicado: </FONT>' + fecha + '<br>').appendTo($('#result_anuncios3'));
-				$('<br>').appendTo($('#result_anuncios3'));
-				// $('<a class="boton verde" href="coments.html" onclick="getPartido('+idpartido+')" id="anuncio" align=left>Entrar idp:'+idpartido+'</a><br>').appendTo($('#result_anuncio'));
-				// $('<a class="boton verde" href="pick.html" onclick="getPartido('+idpartido+')" id="cerrar2" align=left>Crear Pick idp:'+idpartido+'</a><br>').appendTo($('#result_anuncio'));
-				$('<br>').appendTo($('#result_anuncios3'));
-				$('<hr size="4"  />').appendTo($('#result_anuncios3'));
+// 				// $('<strong>Partido creado el día:</strong> ' + fecha + '<br>').appendTo($('#result_anuncio3'));	
+// 				// $('<br>').appendTo($('#result_anuncio3'));
+// 				// $('<br>').appendTo($('#result_anuncio3'));	
+// 				// console.log(partido.imageURL3);
+// 				// $('<div class="item active" id="im1"><img class="imgcenterr" width="130" height="130" align=left src="'+partido.imageURL2+'"').appendTo($('#result_anuncios3'));
+// 				// $('<div class="item active"><img class="imgcenter"  width="130" height="180" align=left src="'+partido.imageURL3+'"').appendTo($('#result_anuncios3'));
+// 				// $('<div class="item active"><img class="imgcenterr"  width="130" height="130" align=left src="'+partido.imageURL1+'"').appendTo($('#result_anuncios3'));
+// 				// $('<br>').appendTo($('#result_anuncios3'));
+// 				// $('<br>').appendTo($('#result_anuncios3'));
+// 				// $('<br>').appendTo($('#result_anuncios3'));
+// 				// $('<br>').appendTo($('#result_anuncios3'));
+// 				// $('<br>').appendTo($('#result_anuncios3'));
+// 				// $('<br>').appendTo($('#result_anuncios3'));
+// 				// $('<br>').appendTo($('#result_anuncios3'));
+// 				// $('<br>').appendTo($('#result_anuncios3'));
+// 				// $('<br>').appendTo($('#result_anuncios3'));
+// 				// $('<br>').appendTo($('#result_anuncios3'));
+// 				$('<br>').appendTo($('#result_anuncios3'));
+// 				$('<br>').appendTo($('#result_anuncios3'));
+// 				$('<FONT class="texts" color="#F78A0E"><strong> Equipo Visitante: </strong></FONT><FONT color="#FFFFFF">' + partido.e_visitante + '</FONT><br>').appendTo($('#result_anuncios3'));
+// 				$('<FONT class="texts" color="#F78A0E"><strong> Equipo Local: </strong> </FONT><FONT color="#FFFFFF">' + partido.e_local + '</FONT><br>').appendTo($('#result_anuncios3'));
+// 				$('<FONT class="texts" color="#F78A0E"><strong> Lugar del Partido: </strong> </FONT><FONT color="#FFFFFF">' + partido.lugar + '</FONT><br>').appendTo($('#result_anuncios3'));
+// 				$('<FONT class="texts" color="#F78A0E"><strong> Jornada Número: </strong> </FONT><FONT color="#FFFFFF">' + partido.jornada + '</FONT><br>').appendTo($('#result_anuncios3'));
+// 				$('<FONT class="texts" color="#F78A0E"><strong> Resultado del partido: </strong></FONT><FONT color="#FFFFFF">' + partido.e_visitante + '</FONT><FONT color="#F78A0E"><strong> VS </strong></FONT><FONT color="#FFFFFF">' 
+// 			+ partido.e_local + '</FONT><FONT color="#F78A0E"><strong> : </strong></FONT><FONT color="#FFFFFF">' + partido.puntuacionv + 
+// 			'</FONT><FONT color="#F78A0E"><strong> - </strong></FONT><FONT color="#FFFFFF">' + partido.puntuacionl + '</FONT><br>').appendTo($('#result_anuncios3'));
+// 				$('<br>').appendTo($('#result_anuncios3'));
+// 				$('<br>').appendTo($('#result_anuncios3'));
+// 				$('<br>').appendTo($('#result_anuncios3'));
+// 				var fecha = new Date(partido.creation_timestamp).toGMTString();
+// 				$('<FONT class="textss" color="#F78A0E"> Publicado: </FONT>' + fecha + '<br>').appendTo($('#result_anuncios3'));
+// 				$('<br>').appendTo($('#result_anuncios3'));
+// 				// $('<a class="boton verde" href="coments.html" onclick="getPartido('+idpartido+')" id="anuncio" align=left>Entrar idp:'+idpartido+'</a><br>').appendTo($('#result_anuncio'));
+// 				// $('<a class="boton verde" href="pick.html" onclick="getPartido('+idpartido+')" id="cerrar2" align=left>Crear Pick idp:'+idpartido+'</a><br>').appendTo($('#result_anuncio'));
+// 				$('<br>').appendTo($('#result_anuncios3'));
+// 				$('<hr size="4"  />').appendTo($('#result_anuncios3'));
 
 				
-		}).fail(function() {
-				$('<div class="alert alert-danger"> <strong>Oh!</strong> Partido no encontrado </div>').appendTo($("#result_anuncios3"));
+// 		}).fail(function() {
+// 				$('<div class="alert alert-danger"> <strong>Oh!</strong> Partido no encontrado </div>').appendTo($("#result_anuncios3"));
 			
-		});
-}
+// 		});
+// }
 //////////
 function getPicks(d){
 
-	var url = API_BASE_URL_PICKS2 +  d;
+	var url = API_BASE_URL_PICKS2 + d;
 		$("#result_anuncio4").text('');
 		$.ajax({
 		url : url,
@@ -172,30 +173,30 @@ function buildLinks(linkheaders){
 	return links;
 }
 
-function getPartidos(url){
+// function getPartidos(url){
 
-	$("#result_anuncios").text('');
+// 	$("#result_anuncios").text('');
 	
-	$.ajax({
-		url : url,
-		type : 'GET',
-		crossDomain : true,
-		dataType : 'json',
-	}).done(function(data, status, jqxhr){
-				var response = data.partidos;
-				var partidos= data;
-				var respuesta = $.parseJSON(jqxhr.responseText);
-				var partidoCollection = new PartidoCollection(response, respuesta, partidos);
-				//var linkHeader = jqxhr.getResponseHeader('links');
-				//console.log(linkHeader);
-				//anuncioCollection.buildLinks(linkHeader);
-				var html =partidoCollection.toHTML();
-				$("#result_anuncios").html(html);
+// 	$.ajax({
+// 		url : url,
+// 		type : 'GET',
+// 		crossDomain : true,
+// 		dataType : 'json',
+// 	}).done(function(data, status, jqxhr){
+// 				var response = data.partidos;
+// 				var partidos= data;
+// 				var respuesta = $.parseJSON(jqxhr.responseText);
+// 				var partidoCollection = new PartidoCollection(response, respuesta, partidos);
+// 				//var linkHeader = jqxhr.getResponseHeader('links');
+// 				//console.log(linkHeader);
+// 				//anuncioCollection.buildLinks(linkHeader);
+// 				var html =partidoCollection.toHTML();
+// 				$("#result_anuncios").html(html);
 				
-	}).fail(function(jqXHR, textStatus) {
-		console.log(textStatus);
-	});
-}
+// 	}).fail(function(jqXHR, textStatus) {
+// 		console.log(textStatus);
+// 	});
+// }
 
 // function getPartido(i) {
 	

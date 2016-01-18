@@ -2,6 +2,7 @@ var API_BASE_URL = 'http://localhost:8080/handicap-api/partidos/';
 var API_BASE_URL_LOGIN = 'http://localhost:8080/handicap-api';
 var API_BASE_URL_PRECIOS = 'http://localhost:8080/handicap-api/partidos/idpartidos/'
 var API_BASE_URL_PICKS = 'http://localhost:8080/handicap-api/picks/partidos/'
+var API_BASE_URL_FAV = 'http://localhost:8080/handicap-api/favoritos/'
 var lastFilename;
 
 var username = getCookie('username');
@@ -19,6 +20,7 @@ $(document).ready(function(){
 	var id = arrVariables[0];
 	var url = API_BASE_URL;
 	var url2 = API_BASE_URL_PICKS + id;
+	var url3 = API_BASE_URL_FAV;
 	console.log(url);
 	console.log(url2);
 	getPartido(id);
@@ -107,12 +109,15 @@ function PickCollection(pickCollection, respuesta, picks){
 		$.each(this.picks, function(i, v) {
 			var pick = v;
 			var idpick = pick.idpick;
+			var fecha = new Date(pick.creation_timestamp).toGMTString();
 			html = html.concat('<br>');
 			html = html.concat('<br>');
 			html = html.concat('<div class="perfilusers2">Pick:<br><br><text class="kkk2">'+ pick.titulo + 
-							   '</text><br><br><a class="boton4 verde" onclick="getCom('+pick.idpick+')" id="pick" align=center>Entrar idpick:'+pick.idpick+'</a></div>');
+							   '</text><br><br><a class="boton4 verde" onclick="getCom('+pick.idpick+')" id="pick" align=center>Entrar idpick:'+pick.idpick+'</a><a class="boton4 verde" id="fav" onclick="getfav('+pick.idpick+')" align=center>Favorito idpick:'+pick.idpick+'</a></div>');
 			html = html.concat('<br>');
 			html = html.concat('<br>');
+			html = html.concat('<FONT class="textss" color="#F78A0E"> Publicado: </FONT>' + fecha + '<br>');
+			
 			html = html.concat('<hr>');
 	
 		});
@@ -140,7 +145,70 @@ function pasarVariables(pagina, i) {
 	location.href=pagina;
 }
 
+function getfav(id) {
+	
+	
+	var Favorito;
 
+		user = getCookie('username');
+
+		Favorito = {
+			"username" : user,
+			"idpick" : id,
+		}
+
+		console.log(Favorito);
+		createFav(Favorito);
+}
+////////////
+
+
+
+
+
+function createFav(Favorito) {
+	var url = API_BASE_URL_FAV;
+	var data = JSON.stringify(Favorito);
+	console.log(url);
+	console.log(Favorito);
+	
+
+	$.ajax({
+		
+        url : url,
+		contentType: 'application/vnd.favoritos.api.favorito+json',
+		type : 'POST',
+		crossDomain : true,
+		dataType : 'json',
+		data : data,
+		statusCode: {
+    		400: function() {$('<div class="alert alert-danger"> <strong>Error!</strong> Bad Request </div>').appendTo($("#result"));},
+			409: function() {$('<div class="alert alert-danger"> <strong>Error!</strong> Conflict </div>').appendTo($("#result"));}
+    	}
+		
+	}).done(function(data, status, jqxhr) {
+	console.log(data);
+		
+		alert("Pick añadido a favoritos!!");
+
+  	}).fail(function() {
+
+	});
+
+}
+
+
+
+
+
+
+//////////////
+// function getFav(i) {
+// 	cadVariables = location.search.substring(1,location.search.length);
+// 	arrVariables = cadVariables.split("=");
+// 	var id = arrVariables[0];
+	
+// }
 
 
 function getPicks(url2){

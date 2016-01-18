@@ -58,7 +58,7 @@ public class PickResource {
 	private DataSource ds = DataSourceSPA.getInstance().getDataSource();
 
 	private String GET_PICK_BY_ID_QUERY = "select p.* from picks p where p.idpick=?";
-	private String INSERT_PARTIDO_QUERY = "insert into picks (username, local, visitante, fechacierre, fechapartido) values (?, ?, ?, ?, ?)";
+	private String INSERT_PICK_QUERY = "insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (?, ?, ?, ?, ?,?)";
 	private String DELETE_PARTIDO_QUERY = "delete from partidos where idpartido=?";
 	private String UPDATE_PARTIDO_QUERY = "update partidos set username=ifnull(?,username),local=ifnull(?, local), visitante=ifnull(?, visitante),fechacierre=ifnull(?,fechacierre),fechapartido=ifnull(?,fechapartido) where idpartido=?";
 
@@ -334,7 +334,7 @@ public class PickResource {
 
 		PreparedStatement stmt = null;
 		try {
-			stmt = conn.prepareStatement(INSERT_PARTIDO_QUERY,
+			stmt = conn.prepareStatement(INSERT_PICK_QUERY,
 					Statement.RETURN_GENERATED_KEYS);// return devuelve el
 														// primary key, este
 														// sera el sitingId

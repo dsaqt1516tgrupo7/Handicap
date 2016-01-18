@@ -107,12 +107,14 @@ function PickCollection(pickCollection, respuesta, picks){
 		$.each(this.picks, function(i, v) {
 			var pick = v;
 			var idpick = pick.idpick;
+			var fecha = new Date(pick.creation_timestamp).toGMTString();
 			html = html.concat('<br>');
 			html = html.concat('<br>');
 			html = html.concat('<div class="perfilusers2">Pick:<br><br><text class="kkk2">'+ pick.titulo + 
-							   '</text><br><br><a class="boton4 verde" onclick="getCom('+pick.idpick+')" id="pick" align=center>Entrar idpick:'+pick.idpick+'</a></div>');
+							   '</text><br><br><a class="boton4 verde" onclick="getCom('+pick.idpick+')" id="pick" align=center>Entrar pick:'+pick.idpick+'</a><a class="boton4 verde" onclick="delCom('+pick.idpick+')" id="fav" align=center>Borrar pick:'+pick.idpick+'</a></div>');
 			html = html.concat('<br>');
 			html = html.concat('<br>');
+			html = html.concat('<FONT class="textss" color="#F78A0E"> Publicado: </FONT>' + fecha + '<br>');
 			html = html.concat('<hr>');
 	
 		});

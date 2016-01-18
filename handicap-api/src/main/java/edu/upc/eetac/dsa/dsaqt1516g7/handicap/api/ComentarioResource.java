@@ -62,7 +62,7 @@ public class ComentarioResource {
 
 	private String GET_PARTIDO_BY_ID_QUERY = "select c.* from comentarios c where c.idcomentario=?";
 	private String INSERT_COMENTARIO_QUERY = "insert into comentarios (pick, username, texto) values (?, ?, ?)";
-	private String DELETE_PARTIDO_QUERY = "delete from comentarios where idpartido=?";
+	private String DELETE_PARTIDO_QUERY = "delete from comentarios where idcomentario=?";
 	private String UPDATE_PARTIDO_QUERY = "update comentarios set username=ifnull(?,username),local=ifnull(?, local), visitante=ifnull(?, visitante),fechacierre=ifnull(?,fechacierre),fechapartido=ifnull(?,fechapartido) where idpartido=?";
 
 	private String GET_PARTIDOS_QUERY = "select c.* from comentarios c where c.creation_timestamp < ifnull(?, now())  order by creation_timestamp desc limit ?";
@@ -322,6 +322,55 @@ public class ComentarioResource {
 	}
 
 	
+	@DELETE
+	@Path("/{idcomentario}")
+	public String deleteComentario(@PathParam("idcomentario") String idcomentario) {
+		Connection conn = null;
+		System.out.println(idcomentario);
+		try {
+			conn = ds.getConnection();
+		} catch (SQLException e) {
+			throw new ServerErrorException(e.getMessage(),
+					Response.Status.SERVICE_UNAVAILABLE);
+		}
+
+		PreparedStatement stmt = null;
+		try {
+			stmt = conn.prepareStatement(DELETE_PARTIDO_QUERY);
+			stmt.setInt(1, Integer.valueOf(idcomentario));
+
+			int rows = stmt.executeUpdate();
+			if (rows == 0)
+				throw new NotFoundException(
+						"There's no partido with idpartido=" + idcomentario);  // da
+																			// un
+																			// errror
+																			// especial
+																			// si
+																			// intentamos
+																			// borrar
+																			// algo
+																			// que
+																			// no
+																			// exixte
+		} catch (SQLException e) {
+			throw new ServerErrorException(e.getMessage(),
+					Response.Status.INTERNAL_SERVER_ERROR);
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				throw new ServerErrorException(e.getMessage(),
+						Response.Status.SERVICE_UNAVAILABLE);
+			}
+			
+			
+		}
+		
+		return "Comentario borrado!!";
+	}
 
 
 	

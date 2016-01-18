@@ -134,6 +134,7 @@ function getFavoritos(url2){
 						dataType : 'json',
 					}).done(function(data, status, jqxhr){
 								var respuesta = $.parseJSON(jqxhr.responseText);
+								var fecha = new Date(data.creation_timestamp).toGMTString();
 								console.log(data);
 								//var linkHeader = jqxhr.getResponseHeader('links');
 								//console.log(linkHeader);
@@ -147,7 +148,8 @@ function getFavoritos(url2){
 								$('<br>').appendTo($('#result_anuncios2'));
 								$('<div class="perfilusers2">Pick:<br><br><text class="kkk2">'
 								 + data.titulo + 
-								'</text><br><br><a class="boton4 verde" onclick="getCom('+data.partido+')" id="pick" align=center>Entrar idp:'+data.partido+'</a></div>').appendTo($('#result_anuncios2'));
+								'</text><br><br><a class="boton4 verde" onclick="getCom('+data.idpick+')" id="pick" align=center>Entrar idp:'+data.idpick+'</a></div>').appendTo($('#result_anuncios2'));
+								$('<FONT class="textss" color="#F78A0E"> Publicado: </FONT>' + fecha + '<br>').appendTo($('#result_anuncios2'));
 
 
 								

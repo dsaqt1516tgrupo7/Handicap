@@ -68,7 +68,7 @@ function createPick(Pick) {
 		dataType : 'json',
 		data : data,
 	}).done(function(data, status, jqxhr) {
-		$('<div class="alert alert-success"> <strong></strong>Mensaje Enviado OK!!</div>').appendTo($("#result_anuncios3"));		
+		$('<div class="perfilusers2"><strong><br><br>&nbsp;PICK AÑADIDO!!!<br><br><text class="kkk2"></strong></div>').appendTo($("#result_anuncios3"));
   	}).fail(function() {
 		$('<div class="alert alert-danger"> <strong></strong> Error al enviar el mensaje!!</div>').appendTo($("#result_anuncios3"));
 	});

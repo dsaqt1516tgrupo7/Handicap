@@ -208,12 +208,13 @@ function deletePartido(i) {
 		crossDomain : true,
 		dataType : 'json',
 		}).done(function(data, status, jqxhr) {
-			alert ("Partido Eliminado OK!!")
+			alert("Partido Eliminado OK!!");
 			window.location= "partidosadmin.html";
 			$('partidosadmin.html').ready(function(){
 		});
+		alert("Partido Eliminado!!");
 	}).fail(function() {
-		alert ("Error al Eliminar el Partido!!")
+		alert("Partido Eliminado!!");
 	});
 					
 }

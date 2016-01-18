@@ -93,7 +93,7 @@ select sleep(1);insert into partidos (imagenl, imagenv, versus, local, visitante
 
 
 
-select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (1, 'javi', 'Gana Chicago', 1, 1, 'Creo que ganarán Chicago porque es mi equipo favorito');
+select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (8, 'javi', 'Gana Chicago', 1, 1, 'Creo que ganarán Chicago porque es mi equipo favorito');
 select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (2, 'sergio', 'Gana Spurs', 1, 1, 'Creo que ganarán Spurs porque es mi equipo favorito');
 select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (1, 'alicia', 'Gana Golden State', 2, 0, 'Creo que ganarán Golden State porque es mi equipo favorito');
 select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (3, 'sergio', 'Gana Miami Heat', 1, 1, 'Creo que ganarán Miami Heat porque es mi equipo favorito');
@@ -103,6 +103,26 @@ select sleep(1);insert into picks (partido, username, titulo, opciones_pick, gan
 select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (9, 'Felipe', 'Gana Thunder', 2, 1, 'Creo que ganarán Ocklahoma porque es mi equipo favorito');
 select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (3, 'alicia', 'Gana Portland San Antonio', 3, 1, 'Creo que ganarán Portland porque es mi equipo favorito');
 select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (1, 'javi', 'Gana Portland', 4, 1, 'Creo que ganarán Portland porque es mi equipo favorito');
+select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (10, 'javi', 'Gana Chicago', 1, 1, 'Creo que ganarán Chicago porque es mi equipo favorito');
+select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (2, 'sergio', 'Gana Spurs', 1, 1, 'Creo que ganarán Spurs porque es mi equipo favorito');
+select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (1, 'alicia', 'Gana Golden State', 2, 0, 'Creo que ganarán Golden State porque es mi equipo favorito');
+select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (7, 'sergio', 'Gana Miami Heat', 1, 1, 'Creo que ganarán Miami Heat porque es mi equipo favorito');
+select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (3, 'blas', 'Gana Dallas Mavericks', 3, 0, 'Creo que ganarán Dallas porque es mi equipo favorito');
+select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (4, 'blas', 'Gana Chicago Bullas', 2, 0, 'Creo que ganarán Chicago porque es mi equipo favorito');
+select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (5, 'sergio', 'Gana Lakers', 1, 1, 'Creo que Houston Lakers porque es mi equipo favorito');
+select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (9, 'Felipe', 'Gana Thunder', 2, 1, 'Creo que ganarán Ocklahoma porque es mi equipo favorito');
+select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (10, 'alicia', 'Gana Portland San Antonio', 3, 1, 'Creo que ganarán Portland porque es mi equipo favorito');
+select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (12, 'javi', 'Gana Portland', 4, 1, 'Creo que ganarán Portland porque es mi equipo favorito');
+select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (11, 'javi', 'Gana Chicago', 1, 1, 'Creo que ganarán Chicago porque es mi equipo favorito');
+select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (12, 'sergio', 'Gana Spurs', 1, 1, 'Creo que ganarán Spurs porque es mi equipo favorito');
+select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (1, 'alicia', 'Gana Golden State', 2, 0, 'Creo que ganarán Golden State porque es mi equipo favorito');
+select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (3, 'sergio', 'Gana Miami Heat', 1, 1, 'Creo que ganarán Miami Heat porque es mi equipo favorito');
+select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (3, 'blas', 'Gana Dallas Mavericks', 3, 0, 'Creo que ganarán Dallas porque es mi equipo favorito');
+select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (4, 'blas', 'Gana Chicago Bullas', 2, 0, 'Creo que ganarán Chicago porque es mi equipo favorito');
+select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (5, 'sergio', 'Gana Lakers', 1, 1, 'Creo que Houston Lakers porque es mi equipo favorito');
+select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (9, 'Felipe', 'Gana Thunder', 2, 1, 'Creo que ganarán Ocklahoma porque es mi equipo favorito');
+select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (8, 'alicia', 'Gana Portland San Antonio', 3, 1, 'Creo que ganarán Portland porque es mi equipo favorito');
+select sleep(1);insert into picks (partido, username, titulo, opciones_pick, ganado, texto) values (7, 'javi', 'Gana Portland', 4, 1, 'Creo que ganarán Portland porque es mi equipo favorito');
 
 
 
@@ -116,7 +136,16 @@ select sleep(1);insert into favoritos (username, idpick) values ('javi', 7);
 select sleep(1);insert into favoritos (username, idpick) values ('blas', 8);
 select sleep(1);insert into favoritos (username, idpick) values ('alberto', 9);
 select sleep(1);insert into favoritos (username, idpick) values ('alberto', 10);
-
+select sleep(1);insert into favoritos (username, idpick) values ('felipe', 2);
+select sleep(1);insert into favoritos (username, idpick) values ('alberto', 3);
+select sleep(1);insert into favoritos (username, idpick) values ('javi', 8);
+select sleep(1);insert into favoritos (username, idpick) values ('alicia', 1);
+select sleep(1);insert into favoritos (username, idpick) values ('blas', 1);
+select sleep(1);insert into favoritos (username, idpick) values ('sergio', 9);
+select sleep(1);insert into favoritos (username, idpick) values ('javi', 8);
+select sleep(1);insert into favoritos (username, idpick) values ('blas', 9);
+select sleep(1);insert into favoritos (username, idpick) values ('alberto', 1);
+select sleep(1);insert into favoritos (username, idpick) values ('alberto', 7);
 
 
 select sleep(1);insert into comentarios (pick, username, texto) values (1, 'javi', 'Yo he visto los tres partidos y para mi Cavs ha dominado en todos ellos. El primero iban ganando casi todo el encuentro excepto al final que Warriors remontaron y forzaron la prorroga, y ahi entre el publico y Curry se llevaron el partido. El segundo encuentro mas de lo mismo, los jugadores de Golden incapaces de parar a Lebron y en el ultimo cuarto tuvieron que remontar para acabar perdiendo en la prorroga.
@@ -129,15 +158,51 @@ select sleep(1);insert into comentarios (pick, username, texto) values (1, 'feli
 select sleep(1);insert into comentarios (pick, username, texto) values (1, 'sergio', 'Estoy deacuerdo');
 select sleep(1);insert into comentarios (pick, username, texto) values (1, 'alicia', 'Estoy deacuerdo');
 select sleep(1);insert into comentarios (pick, username, texto) values (1, 'javi', 'No estoy deacuerdo');
-select sleep(1);insert into comentarios (pick, username, texto) values (1, 'javi', 'Estoy deacuerdo');
-select sleep(1);insert into comentarios (pick, username, texto) values (1, 'felipe', 'No estoy deacuerdo');
-select sleep(1);insert into comentarios (pick, username, texto) values (1, 'blas', 'No estoy deacuerdo');
-select sleep(1);insert into comentarios (pick, username, texto) values (1, 'alicia', 'Estoy deacuerdo');
+select sleep(1);insert into comentarios (pick, username, texto) values (2, 'javi', 'Estoy deacuerdo');
+select sleep(1);insert into comentarios (pick, username, texto) values (3, 'felipe', 'No estoy deacuerdo');
+select sleep(1);insert into comentarios (pick, username, texto) values (2, 'blas', 'No estoy deacuerdo');
+select sleep(1);insert into comentarios (pick, username, texto) values (3, 'alicia', 'Estoy deacuerdo');
 select sleep(1);insert into comentarios (pick, username, texto) values (1, 'sergio', 'Yo he visto los tres partidos y para mi Cavs ha dominado en todos ellos. El primero iban ganando casi todo el encuentro excepto al final que Warriors remontaron y forzaron la prorroga, y ahi entre el publico y Curry se llevaron el partido. El segundo encuentro mas de lo mismo, los jugadores de Golden incapaces de parar a Lebron y en el ultimo cuarto tuvieron que remontar para acabar perdiendo en la prorroga.
 Y el tercer encuentro, donde otra vez Lebron fue muy superior y no consiguieron pararlo.
 
 Y aun asi, seguimos teniendo cuotas entre 1,8 y 2 a que Cavs gana el anillo... Yo acabo de entrar con stake 1 porque no veo la manera de que los Warriors puedan parar a Lebron.');
+select sleep(1);insert into comentarios (pick, username, texto) values (2, 'javi', 'Yo he visto los tres partidos y para mi Cavs ha dominado en todos ellos. El primero iban ganando casi todo el encuentro excepto al final que Warriors remontaron y forzaron la prorroga, y ahi entre el publico y Curry se llevaron el partido. El segundo encuentro mas de lo mismo, los jugadores de Golden incapaces de parar a Lebron y en el ultimo cuarto tuvieron que remontar para acabar perdiendo en la prorroga.
+Y el tercer encuentro, donde otra vez Lebron fue muy superior y no consiguieron pararlo.
 
+Y aun asi, seguimos teniendo cuotas entre 1,8 y 2 a que Cavs gana el anillo... Yo acabo de entrar con stake 1 porque no veo la manera de que los Warriors puedan parar a Lebron.');
+select sleep(1);insert into comentarios (pick, username, texto) values (2, 'alicia', 'Estoy deacuerdo');
+select sleep(1);insert into comentarios (pick, username, texto) values (3, 'sergio', 'No estoy deacuerdo');
+select sleep(1);insert into comentarios (pick, username, texto) values (2, 'felipe', 'No estoy deacuerdo');
+select sleep(1);insert into comentarios (pick, username, texto) values (3, 'sergio', 'Estoy deacuerdo');
+select sleep(1);insert into comentarios (pick, username, texto) values (3, 'alicia', 'Estoy deacuerdo');
+
+select sleep(1);insert into comentarios (pick, username, texto) values (1, 'javi', 'Yo he visto los tres partidos y para mi Cavs ha dominado en todos ellos. El primero iban ganando casi todo el encuentro excepto al final que Warriors remontaron y forzaron la prorroga, y ahi entre el publico y Curry se llevaron el partido. El segundo encuentro mas de lo mismo, los jugadores de Golden incapaces de parar a Lebron y en el ultimo cuarto tuvieron que remontar para acabar perdiendo en la prorroga.
+Y el tercer encuentro, donde otra vez Lebron fue muy superior y no consiguieron pararlo.
+
+Y aun asi, seguimos teniendo cuotas entre 1,8 y 2 a que Cavs gana el anillo... Yo acabo de entrar con stake 1 porque no veo la manera de que los Warriors puedan parar a Lebron.');
+select sleep(1);insert into comentarios (pick, username, texto) values (11, 'alicia', 'Estoy deacuerdo');
+select sleep(1);insert into comentarios (pick, username, texto) values (12, 'sergio', 'No estoy deacuerdo');
+select sleep(1);insert into comentarios (pick, username, texto) values (13, 'felipe', 'No estoy deacuerdo');
+select sleep(1);insert into comentarios (pick, username, texto) values (14, 'sergio', 'Estoy deacuerdo');
+select sleep(1);insert into comentarios (pick, username, texto) values (11, 'alicia', 'Estoy deacuerdo');
+select sleep(1);insert into comentarios (pick, username, texto) values (12, 'javi', 'No estoy deacuerdo');
+select sleep(1);insert into comentarios (pick, username, texto) values (12, 'javi', 'Estoy deacuerdo');
+select sleep(1);insert into comentarios (pick, username, texto) values (13, 'felipe', 'No estoy deacuerdo');
+select sleep(1);insert into comentarios (pick, username, texto) values (12, 'blas', 'No estoy deacuerdo');
+select sleep(1);insert into comentarios (pick, username, texto) values (13, 'alicia', 'Estoy deacuerdo');
+select sleep(1);insert into comentarios (pick, username, texto) values (10, 'sergio', 'Yo he visto los tres partidos y para mi Cavs ha dominado en todos ellos. El primero iban ganando casi todo el encuentro excepto al final que Warriors remontaron y forzaron la prorroga, y ahi entre el publico y Curry se llevaron el partido. El segundo encuentro mas de lo mismo, los jugadores de Golden incapaces de parar a Lebron y en el ultimo cuarto tuvieron que remontar para acabar perdiendo en la prorroga.
+Y el tercer encuentro, donde otra vez Lebron fue muy superior y no consiguieron pararlo.
+
+Y aun asi, seguimos teniendo cuotas entre 1,8 y 2 a que Cavs gana el anillo... Yo acabo de entrar con stake 1 porque no veo la manera de que los Warriors puedan parar a Lebron.');
+select sleep(1);insert into comentarios (pick, username, texto) values (7, 'javi', 'Yo he visto los tres partidos y para mi Cavs ha dominado en todos ellos. El primero iban ganando casi todo el encuentro excepto al final que Warriors remontaron y forzaron la prorroga, y ahi entre el publico y Curry se llevaron el partido. El segundo encuentro mas de lo mismo, los jugadores de Golden incapaces de parar a Lebron y en el ultimo cuarto tuvieron que remontar para acabar perdiendo en la prorroga.
+Y el tercer encuentro, donde otra vez Lebron fue muy superior y no consiguieron pararlo.
+
+Y aun asi, seguimos teniendo cuotas entre 1,8 y 2 a que Cavs gana el anillo... Yo acabo de entrar con stake 1 porque no veo la manera de que los Warriors puedan parar a Lebron.');
+select sleep(1);insert into comentarios (pick, username, texto) values (8, 'alicia', 'Estoy deacuerdo');
+select sleep(1);insert into comentarios (pick, username, texto) values (9, 'sergio', 'No estoy deacuerdo');
+select sleep(1);insert into comentarios (pick, username, texto) values (10, 'felipe', 'No estoy deacuerdo');
+select sleep(1);insert into comentarios (pick, username, texto) values (13, 'sergio', 'Estoy deacuerdo');
+select sleep(1);insert into comentarios (pick, username, texto) values (13, 'alicia', 'Estoy deacuerdo');
 
 
 insert into pick_comentario (pick, comentario) values (1, 1);
