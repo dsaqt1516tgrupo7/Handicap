@@ -356,7 +356,7 @@ function createComentario(Comentario) {
     	}
 
 	}).done(function(data, status, jqxhr) {
-		
+		alert("Comentario Enviado!!!");
   	}).fail(function() {
   		
 	});

@@ -68,9 +68,10 @@ function createPick(Pick) {
 		dataType : 'json',
 		data : data,
 	}).done(function(data, status, jqxhr) {
-		$('<div class="perfilusers2"><strong><br><br>&nbsp;PICK AÑADIDO!!!<br><br><text class="kkk2"></strong></div>').appendTo($("#result_anuncios3"));
+		$('<input id="volver22" onclick="javascript:history.back(-1);" class="input-btn" type="button" value="Volver">').appendTo($("#result_anuncios3"));
+		alert("Pick Creado!!");
   	}).fail(function() {
-		$('<div class="alert alert-danger"> <strong></strong> Error al enviar el mensaje!!</div>').appendTo($("#result_anuncios3"));
+		// $('<input id="volver" class="input-btn" href="" type="button" value="Enviar">').appendTo($("#result_anuncios4"));
 	});
 
 }

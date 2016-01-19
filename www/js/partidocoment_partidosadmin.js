@@ -6,6 +6,8 @@ var API_BASE_URL_PICKS2 = 'http://localhost:8080/handicap-api/picks/'
 var API_BASE_URL_COMENTARIOS = 'http://localhost:8080/handicap-api/comentarios/picks/';
 var API_BASE_URL_COMENTS = 'http://localhost:8080/handicap-api/comentarios/picks/';
 var API_BASE_URL_DEL = 'http://localhost:8080/handicap-api/comentarios/'
+var API_BASE_URL_CREATE = 'http://localhost:8080/handicap-api/comentarios/';
+
 var lastFilename;
 var username = getCookie('username');
 var password = getCookie('password');
@@ -316,6 +318,7 @@ $("#enviarcom").click(function(e){
 	
 
 	var txt = $('#textocom').val();
+	
 		Comentario = {
 			"pick" : id,
 			"username" : username,
@@ -329,29 +332,36 @@ $("#enviarcom").click(function(e){
 
 
 function createComentario(Comentario) {
-	var url = API_BASE_URL_COMENTARIOS;
+	var url = API_BASE_URL_CREATE;
 	var data = JSON.stringify(Comentario);
+	console.log(url);
+	console.log(Comentario);
 	
 
 
 	$.ajax({
+	
 		// headers : {
 		// 	'Authorization' : "Basic " + btoa(username + ':' + password)
 		// },
-		contentType: 'application/vnd.partidos.api.partido+json',
 		url : url,
+		contentType: 'application/vnd.partidos.api.partido+json',
 		type : 'POST',
 		crossDomain : true,
 		dataType : 'json',
 		data : data,
+		statusCode: {
+    		400: function() {$('<div class="alert alert-danger"> <strong>Error!</strong> Bad Request </div>').appendTo($("#result"));},
+			409: function() {$('<div class="alert alert-danger"> <strong>Error!</strong> Conflict </div>').appendTo($("#result"));}
+    	}
+
 	}).done(function(data, status, jqxhr) {
-		$('<div class="alert alert-success"> <strong></strong>Mensaje Enviado OK!!</div>').appendTo($("#result_anuncios3"));		
+		alert("Comentario Enviado!!!");
   	}).fail(function() {
-		$('<div class="alert alert-danger"> <strong></strong> Error al enviar el mensaje!!</div>').appendTo($("#result_anuncios3"));
+  		
 	});
-
+  	// location.reload();
 }
-
 
 /////////////
 

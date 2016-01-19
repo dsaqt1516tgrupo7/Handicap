@@ -25,7 +25,29 @@ header {
 	overflow: hidden;
 	position: relative;
 }
-
+#nombb{
+	position: relative;
+	width: 550px;
+	left: 50px;
+	top: 20px;
+}
+#emaill{
+	position: relative;
+	width: 550px;
+	left: 50px;
+	top: 20px;
+}
+#textu{
+	position: relative;
+	width: 550px;
+	left: 10px;
+	top: 20px;
+}
+#ops{
+	position: relative;
+	top: 50px;
+	left: 100px;
+}
 #explicacion{
 	color: #EFD87D;
 	font-size: 14px;
@@ -194,12 +216,40 @@ header {
     margin-bottom: 0px;
     cursor: pointer;
 }
+#pista{
+	position: relative;
+	left: 45px;
+	top: 10px;
+}
+#volver22 {    
+    width: 200px;
+    height: 50px;
+    letter-spacing: 0px;
+    background: #0065B3;
+    border-radius: 0px;
+    color: #ffffff;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: 0px;
+    margin-left: 40px;
+    transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    margin-bottom: 0px;
+    cursor: pointer;
+    position: relative;
+    left: 163px;
+}
 
 .input-btn:hover {
     background: #61BD2C;
     color: #222;
 }
-
+#volver22:hover {
+    background: #61BD2C;
+    color: #222;
+}
 
 
 

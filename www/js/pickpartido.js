@@ -129,7 +129,7 @@ function FavoritoCollection(favoritoCollection, respuesta, favoritos){
 	}
 }
 function getPrincipio(){
-window.location= "perfilfavoritos.html";
+	window.location= "perfilfavoritos.html";
 	pasarVariables ('perfilfavoritos.html');
 	$('perfilfavoritos.html').ready(function(){
 	});

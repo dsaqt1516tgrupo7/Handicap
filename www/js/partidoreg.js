@@ -192,7 +192,7 @@ function createFav(Favorito) {
 		alert("Pick añadido a favoritos!!");
 
   	}).fail(function() {
-
+  		alert("Ya está en tu lista de favoritos");
 	});
 
 }
