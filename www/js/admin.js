@@ -117,7 +117,7 @@ function getEquipoL(selequipo){
 				$('<img id="vv" width="130" height="180" align="left" src="'+data.imageURL1+'">').appendTo($('#uno'));
 		}).fail(function() {
 				// $('<div class="alert alert-danger"> <strong>Oh!</strong> Anuncio no encontrado </div>').appendTo($("#result_anuncio"));
-				 alert("Partido Creado!");	
+				
 	});
 
 }
@@ -140,7 +140,7 @@ function getEquipoV(selequipo){
 				$('<img id="vs" width="130" height="180" align="left" src="'+data.imageURL1+'">').appendTo($('#dos'));
 		}).fail(function() {
 				// $('<div class="alert alert-danger"> <strong>Oh!</strong> Equipo no encontrado </div>').appendTo($("#result_anuncio"));
-				 alert("Equipo No Encontrado!");
+				 
 			
 	});
 }
